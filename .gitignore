@@ -1,0 +1,7 @@
+build/
+vendor/
+.vscode/
+.test/
+bin/golangci-lint
+example.yaml
+example-2.yaml
