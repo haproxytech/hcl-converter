@@ -1,9 +1,4 @@
 ---
-before:
-  hooks:
-    - go mod download
-    - go mod tidy
-    - mkdir build/
 builds:
   -
     id: my-build
