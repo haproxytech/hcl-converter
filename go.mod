@@ -1,4 +1,4 @@
-module haproxytech/hcl-converter
+module github.com/haproxytech/hcl-converter
 
 go 1.20
 
