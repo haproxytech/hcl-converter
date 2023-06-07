@@ -6,7 +6,7 @@ import (
 	"path/filepath"
 	"strings"
 
-	"haproxy/hcl-converter/configuration"
+	"haproxytech/hcl-converter/configuration"
 )
 
 var usage string = `Usage:

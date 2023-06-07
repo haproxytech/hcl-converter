@@ -23,7 +23,7 @@ import (
 	"strings"
 	"testing"
 
-	"haproxy/hcl-converter/configuration"
+	"haproxytech/hcl-converter/configuration"
 )
 
 func TestConverter(t *testing.T) {
