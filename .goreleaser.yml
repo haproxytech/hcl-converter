@@ -1,0 +1,53 @@
+---
+before:
+  hooks:
+    - go mod download
+    - go mod tidy
+    - make clean
+    - mkdir build/
+builds:
+  -
+    id: my-build
+    main: ./main.go
+    binary: ./build/hcl-converter
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - freebsd
+      - darwin
+    goarch:
+      - "386"
+      - amd64
+      - arm
+      - arm64
+      - ppc64le
+      - s390x
+archives:
+  -
+    id: my-archive
+    builds:
+      - my-build
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    replacements:
+      linux: Linux
+      darwin: Darwin
+      freebsd: FreeBSD
+      386: i386
+      amd64: x86_64
+checksum:
+  name_template: 'checksums.txt'
+snapshot:
+  name_template: "{{ .Tag }}-next"
+release:
+  github:
+    owner: haproxytech
+    name: hcl-converter
+  header: |
+    ## Release Notes
+    HAProxy Data Plane API HCL Converter{{.Tag}} {{.ShortCommit}}
+
+    Build from: git@github.com:haproxytech/hcl-converter.git
+    Build date: {{.Date}}
+  draft: true
+  name_template: "HAProxy Data Plane API HCL Converter v{{.Version}}"
