@@ -3,7 +3,6 @@ before:
   hooks:
     - go mod download
     - go mod tidy
-    - make clean
     - mkdir build/
 builds:
   -
