@@ -4,6 +4,8 @@ builds:
     id: my-build
     main: ./main.go
     binary: ./build/hcl-converter
+    flags:
+      - -trimpath
     env:
       - CGO_ENABLED=0
     goos:
